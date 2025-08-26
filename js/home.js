@@ -35,6 +35,11 @@ function handleButtonToggle(id) {
     .getElementById(id)
     .classList.add("border-[#0874f2]", "bg-[#0874f20d]");
 }
+
+//Transaction work
+
+const transactionData = [];
+
 //Add money feature
 
 let validPin = 2552;
@@ -62,6 +67,13 @@ document
     const totalNewAvailableBalance = availableBalance + amount;
     document.getElementById("available-balance").innerText =
       totalNewAvailableBalance;
+
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleTimeString(),
+    };
+
+    transactionData.push(data);
   });
 
 //Cashout Money Feature
@@ -77,6 +89,39 @@ document
     const totalNewAvailableBalance = availableBalance - cashoutAmount;
     document.getElementById("available-balance").innerText =
       totalNewAvailableBalance;
+
+    const data = {
+      name: "cash out",
+      date: new Date().toLocalTimeString(),
+    };
+
+    transactionData.push(data);
+  });
+
+document
+  .getElementById("btn-transaction")
+  .addEventListener("click", function () {
+    const transactionContainer = document.getElementById(
+      "transaction-container"
+    );
+    transactionContainer.innerText = "";
+    for (const data of transactionData) {
+      const div = document.createElement("div");
+      div.innerHTML = `<div class="bg-white rounded-xl p-3 flex justify-between items-center mt-3">
+                    <div class="flex items-center">
+                        <div class=" p-3 rounded-full bg-[#f4f5f7]">
+                            <img class="mx-auto" src="./assets/wallet1.png" alt="">
+                        </div>
+                        <div class="ml-5">
+                            <h1>${data.name}</h1>
+                            <p>${data.date}</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>`;
+
+      transactionContainer.appendChild(div);
+    }
   });
 
 //Toggling Feature
@@ -101,3 +146,15 @@ document.getElementById("btn-get-bonus").addEventListener("click", function () {
   handleToggle("get-bonus-parent");
   handleButtonToggle("btn-get-bonus");
 });
+
+document.getElementById("btn-pay-bill").addEventListener("click", function () {
+  handleToggle("pay-bill-parent");
+  handleButtonToggle("btn-pay-bill");
+});
+
+document
+  .getElementById("btn-transaction")
+  .addEventListener("click", function () {
+    handleToggle("transaction-parent");
+    handleButtonToggle("btn-transaction");
+  });
