@@ -51,6 +51,12 @@ document
     const bank = getValue("bank");
     const accountNumber = getValue("account-number");
     const amount = getInputValueNumber("add-amount");
+
+    if (amount <= 0) {
+      alert("Invalid amount");
+      return;
+    }
+
     const pin = getInputValueNumber("add-pin");
     //Checking account number is correct or not
     if (accountNumber.length < 11) {
@@ -86,6 +92,11 @@ document
     const cashoutAmount = getValue("cashout-amount");
     const cashoutPin = getValue("cashout-pin");
     const availableBalance = getInnerText("available-balance");
+
+    if (amount <= 0 || amount > availableBalance) {
+      alert("invalid amount");
+      return;
+    }
     const totalNewAvailableBalance = availableBalance - cashoutAmount;
     document.getElementById("available-balance").innerText =
       totalNewAvailableBalance;
