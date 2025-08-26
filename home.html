@@ -39,27 +39,27 @@
     </header>
     <main class="max-w-lg mx-auto bg-[#f4f5f7] h-[100vh]">
         <section class="min-h-[300px] grid grid-cols-3 gap-4 bg-white rounded-b-xl p-5">
-            <div id="add-money-btn" class="border-2 flex flex-col justify-center items-center border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
+            <div id="add-money-btn" class="form-btn border-2 flex flex-col justify-center items-center border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
                 <img class="mx-auto" src="./assets/wallet1.png" alt="">
                 <h2>Add Money</h2>
             </div>
-            <div id="btn-cash-out" class="flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
+            <div id="btn-cash-out" class="form-btn flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
                 <img class="mx-auto" src="./assets/send1.png" alt="">
                 <h2>Cashout</h2>
             </div>
-            <div class="flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
+            <div id="btn-transfer-money" class="form-btn flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
                 <img class="mx-auto" src="./assets/money1.png" alt="">
                 <h2>Transfer Money</h2>
             </div>
-            <div class="flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
+            <div id="btn-get-bonus" class="form-btn flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
                 <img class="mx-auto" src="./assets/bonus1.png" alt="">
                 <h2>Get Bonus</h2>
             </div>
-            <div class="flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
+            <div id="btn-pay-bill" class="form-btn flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
                 <img class="mx-auto" src="./assets/purse1.png" alt="">
                 <h2>Pay Bill</h2>
             </div>
-            <div class="flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
+            <div id="btn-transaction" class="form-btn flex flex-col justify-center items-center border-2 border-gray-300 text-center p-3 rounded-3xl cursor-pointer">
                 <img class="mx-auto" src="./assets/transaction1.png" alt="">
                 <h2>Transactions</h2>
             </div>
@@ -67,7 +67,7 @@
 
         <section class="all-form-section">
             <!-- Add Money div starts -->
-             <div id="add-money-parent">
+             <div class="form" id="add-money-parent">
                 <h1 class="font-bold text-xl mb-3 mt-6 pl-4">Add Money</h1>
                 <form action="" class="bg-white rounded-2xl p-8">
                     <div>
@@ -98,7 +98,7 @@
              <!-- Add Money div ends -->
 
              <!-- Cash-Out div starts -->
-              <div id="cash-out-parent">
+              <div class="form" id="cash-out-parent" style ="display:none">
                 <h1 class="font-bold text-xl mb-3 mt-6 pl-4">Cash Out</h1>
                 <form action="" class="bg-white rounded-2xl p-8">
                     <div>
@@ -110,13 +110,48 @@
                         <input id="cashout-amount" type="text" placeholder="Enter your Amount to withdraw" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" /></div>
                     <div>
                         <legend class="fieldset-legend font-bold text-xl">Pin Number</legend>
-                        <input id="cashout-pin" type="password" placeholder="Enter your pin" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" /></div>
+                        <input id="cashout-pin" type="password" placeholder="Enter your pin" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+                    </div>
 
                         <button class="btn bg-[#0874f2] text-white font-bold mt-5 w-full rounded-3xl" id="btn-withdraw">Withdraw Money</button>
                 </form>
               </div>
-              
              <!-- Cash-Out div Ends -->
+
+             <!-- Transfer Money div starts -->
+              <div class="form" id="transfer-money-parent" style ="display:none">
+                <h1 class="font-bold text-xl mb-3 mt-6 pl-4">Transfer Money</h1>
+                <form action="" class="bg-white rounded-2xl p-8">
+                    <div>
+                        <legend class="fieldset-legend font-bold text-xl">User Account Number</legend>
+                        <input id="user-account-number" type="text" placeholder="Enter User Account number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+                    </div>
+                    <div>
+                        <legend class="fieldset-legend font-bold text-xl">Amount</legend>
+                        <input id="transfer-amount" type="text" placeholder="Enter your Amount to withdraw" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" /></div>
+                    <div>
+                        <legend class="fieldset-legend font-bold text-xl">Pin Number</legend>
+                        <input id="transfer-pin" type="password" placeholder="Enter your pin" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+                    </div>
+
+                        <button class="btn bg-[#0874f2] text-white font-bold mt-5 w-full rounded-3xl" id="btn-withdraw">Send Now</button>
+                </form>
+              </div>
+             <!-- Transfer Money div ends -->
+
+              <!-- Get Bonus Div starts -->
+               <div class="form" id="get-bonus-parent" style ="display:none">
+                <h1 class="font-bold text-xl mb-3 mt-6 pl-4">Get Bonus</h1>
+                <form action="" class="bg-white rounded-2xl p-8">
+                    <div>
+                        <legend class="fieldset-legend font-bold text-xl">Enter Bonus Coupon</legend>
+                        <input id="bonus-coupon" type="text" placeholder="Enter your coupon" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+                    </div>
+
+                        <button class="btn bg-[#0874f2] text-white font-bold mt-5 w-full rounded-3xl" id="btn-get-bonus">Get Bonus</button>
+                </form>
+              </div>
+              <!-- Get Bonus Div ends -->
         </section>
     </main>
     <!-- JS Script CDN -->

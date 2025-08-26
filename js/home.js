@@ -5,7 +5,6 @@ function getInputValueNumber(id) {
 }
 
 //Reusable code for getting value
-
 function getValue(id) {
   const input = document.getElementById(id).value;
   return input;
@@ -14,6 +13,27 @@ function getValue(id) {
 function getInnerText(id) {
   const innerText = parseInt(document.getElementById(id).innerText);
   return innerText;
+}
+//Reusable code for toggle
+function handleToggle(id) {
+  const forms = document.getElementsByClassName("form");
+  for (const form of forms) {
+    form.style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+
+//Reusable code for toggle buttons
+function handleButtonToggle(id) {
+  const formBtns = document.getElementsByClassName("form-btn");
+  for (const btns of formBtns) {
+    btns.classList.remove("border-[#0874f2]", "bg-[#0874f20d]");
+    btns.classList.add("border-gray-300");
+  }
+  document.getElementById(id).classList.remove("border-gray-300");
+  document
+    .getElementById(id)
+    .classList.add("border-[#0874f2]", "bg-[#0874f20d]");
 }
 //Add money feature
 
@@ -61,11 +81,23 @@ document
 
 //Toggling Feature
 document.getElementById("add-money-btn").addEventListener("click", function () {
-  document.getElementById("cash-out-parent").style.display = "none";
-  document.getElementById("add-money-parent").style.display = "block";
+  handleToggle("add-money-parent");
+  handleButtonToggle("add-money-btn");
 });
 
 document.getElementById("btn-cash-out").addEventListener("click", function () {
-  document.getElementById("add-money-parent").style.display = "none";
-  document.getElementById("cash-out-parent").style.display = "block";
+  handleToggle("cash-out-parent");
+  handleButtonToggle("btn-cash-out");
+});
+
+document
+  .getElementById("btn-transfer-money")
+  .addEventListener("click", function () {
+    handleToggle("transfer-money-parent");
+    handleButtonToggle("btn-transfer-money");
+  });
+
+document.getElementById("btn-get-bonus").addEventListener("click", function () {
+  handleToggle("get-bonus-parent");
+  handleButtonToggle("btn-get-bonus");
 });
